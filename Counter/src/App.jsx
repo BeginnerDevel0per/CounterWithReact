@@ -1,19 +1,14 @@
-import {} from 'react'
-
-import './App.css'
-import Counter from './Components/Counter/Counter'
-import Home from "./Components/Home/Home"
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
-
+import { } from 'react'
+import Home from "./Page/Home/Home"
+import { Route, Routes } from 'react-router-dom'
+import styles from './index';
 function App() {
-
-
+  styles();
   return (
     <>
-        <Routes>
+      <Routes>
         <Route path='/' element={<Home></Home>} />
-          <Route path='/Counter/:count' element={<Counter></Counter>} />
-        </Routes>
+      </Routes>
     </>
   )
 }

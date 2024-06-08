@@ -1,19 +1,21 @@
 import { useState } from 'react'
-import "./Counter.css"
-import { useParams } from 'react-router-dom'
-function Counter() {
-    const {count}= useParams();
-    const [result,setResult]=useState(0);
+import { styles } from './styles';
+import PropTypes from 'prop-types';
+function Counter(props) {
+    const classes = styles();
+    const [result, setResult] = useState(0);
+    Counter.propTypes = {
+        count: PropTypes.number.isRequired,
+    };
     return (
         <>
-            <h3>Arttırma ve azaltma miktarı = <strong>{count}</strong></h3>
+            <h3>Arttırma ve azaltma miktarı = <strong>{props.count}</strong></h3>
             <h1>{result}</h1>
-            <div className='btn-group'>
-                <button onClick={()=>{setResult(Number(result)-Number(count))}}>Azalt</button>
-                <button onClick={()=>{setResult(Number(result)+Number(count))}}>Arttır</button>
+            <div >
+                <button className={classes.customBtn} onClick={() => { setResult(Number(result) - Number(props.count)) }}>Azalt</button>
+                <button className={classes.customBtn} onClick={() => { setResult(Number(result) + Number(props.count)) }}>Arttır</button>
             </div>
         </>
     )
 }
-
 export default Counter
